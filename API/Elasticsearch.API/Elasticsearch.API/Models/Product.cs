@@ -1,4 +1,5 @@
-﻿using Nest;
+﻿using Elasticsearch.API.DTOs;
+using Nest;
 
 namespace Elasticsearch.API.Models
 {
@@ -14,5 +15,13 @@ namespace Elasticsearch.API.Models
         public DateTime? Updated { get; set; }
         public ProductFeature? Feature { get; set; } // Sanal ilişki
 
+        //Maplemenin farklı bir yaklaışımı
+        public ProductDTO CreateProductDTO()
+        {
+            if (Feature == null)
+                return new ProductDTO(Id, Name, Price, Stock, null);
+
+            return new ProductDTO(Id, Name, Price, Stock, new ProductFeatureDTO(Feature.Width, Feature.Height, Feature.Color));
+        }
     }
 }
