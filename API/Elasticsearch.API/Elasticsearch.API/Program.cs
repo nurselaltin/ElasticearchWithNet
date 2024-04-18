@@ -1,4 +1,6 @@
 using Elasticsearch.API.Extensions;
+using Elasticsearch.API.Repositories;
+using Elasticsearch.API.Services;
 using Elasticsearch.Net;
 using Nest;
 
@@ -11,6 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddElastic(builder.Configuration);
+//Servisler ve repositoriler scope olarak eklenir
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ProductRepository>();
 var app = builder.Build();
 
 

@@ -10,12 +10,13 @@ namespace Elasticsearch.API.DTOs
         //İlgili kodu ilgili yere yaklaştır : Clean Code
         public Product CreateProduct()
         {
-            return new Product { 
-                Name = Name, 
-                Price = Price, 
+            return new Product
+            {
+                Name = Name,
+                Price = Price,
                 Stock = Stock,
-                Feature = new ProductFeature() { Width = Feature.Width, Height = Feature.Height }   
-            }
+                Feature = new ProductFeature() { Width = Feature.Width, Height = Feature.Height }
+            };
         }
     }
 }
